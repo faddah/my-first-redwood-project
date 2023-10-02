@@ -14,18 +14,18 @@ import ScaffoldLayout from 'src/layouts/ScaffoldLayout'
 import { useAuth } from './auth'
 
 const Routes = () => {
-  return (
-    <Router useAuth={useAuth}>
-      <Route path="/" page={HomePage} name="home" />
-      <Set wrap={ScaffoldLayout} title="Posts" titleTo="posts" buttonLabel="New Post" buttonTo="newPost">
-        <Route path="/posts/new" page={PostNewPostPage} name="newPost" />
-        <Route path="/posts/{id:Int}/edit" page={PostEditPostPage} name="editPost" />
-        <Route path="/posts/{id:Int}" page={PostPostPage} name="post" />
-        <Route path="/posts" page={PostPostsPage} name="posts" />
-      </Set>
-      <Route notfound page={NotFoundPage} />
-    </Router>
-  )
+	return (
+		<Router useAuth={useAuth}>
+			<Route path="/" page={HomePage} name="home" />
+			<Set wrap={ScaffoldLayout} title="Posts" titleTo="posts" buttonLabel="New Post" buttonTo="newPost">
+				<Route path="/posts/new" page={PostNewPostPage} name="newPost" />
+				<Route path="/posts/{id:Int}/edit" page={PostEditPostPage} name="editPost" />
+				<Route path="/posts/{id:Int}" page={PostPostPage} name="post" />
+				<Route path="/posts" page={PostPostsPage} name="posts" />
+			</Set>
+			<Route notfound page={NotFoundPage} />
+		</Router>
+	)
 }
 
 export default Routes
