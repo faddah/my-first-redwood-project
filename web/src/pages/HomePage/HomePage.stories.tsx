@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import HomePage from './Old-HomePage'
+import HomePage from './HomePage'
 
 const meta: Meta<typeof HomePage> = {
 	component: HomePage,
