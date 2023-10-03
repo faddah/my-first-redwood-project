@@ -18,7 +18,7 @@ const HomePage = () => {
 				<Link to={routes.home()}>Home</Link>`
 			</p>
 			<p>{JSON.stringify({ isAuthenticated })}</p>
-			<button onClick={signUp}>sign up</button>
+			<button onClick={() => signUp()}>sign up</button>
 		</>
 	)
 }
