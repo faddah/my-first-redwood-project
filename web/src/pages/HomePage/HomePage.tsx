@@ -1,9 +1,14 @@
 import { Link, routes } from '@redwoodjs/router'
 import { MetaTags } from '@redwoodjs/web'
+import { SignInButton, UserButton } from '@clerk/clerk-react'
 import { useAuth } from 'src/auth'
 
+import '../../scaffold.css'
+import '../../index.css'
+import { bool } from 'prop-types'
+
 const HomePage = () => {
-	const { isAuthenticated, signUp } = useAuth()
+	const { isAuthenticated, currentUser /*, signUp */ } = useAuth()
 
 	return (
 		<>
@@ -18,7 +23,17 @@ const HomePage = () => {
 				<Link to={routes.home()}>Home</Link>`
 			</p>
 			<p>{JSON.stringify({ isAuthenticated })}</p>
-			<button onClick={() => signUp()}>sign up</button>
+			{isAuthenticated ? (
+				<div>
+					<UserButton afterSignOutUrl={window.location.href} />
+					<h1>Hello {currentUser.firstName}</h1>
+				</div>
+			) : (
+				<div>
+					<SignInButton mode="modal" />
+				</div>
+			)}
+			{/* <button onClick={() => signUp()}>sign up</button> */}
 		</>
 	)
 }
